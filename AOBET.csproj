@@ -100,6 +100,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\HeroButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Resources\SQLite.cs" />
     <EmbeddedResource Include="Forms\Arena.resx">
       <DependentUpon>Arena.cs</DependentUpon>
@@ -213,6 +216,9 @@
   <ItemGroup>
     <EmbeddedResource Include="costura32\SQLite.Interop.dll" />
     <EmbeddedResource Include="costura64\SQLite.Interop.dll" />
+    <EmbeddedResource Include="Resources\HeroButton.resx">
+      <DependentUpon>HeroButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\System.Data.SQLite.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
