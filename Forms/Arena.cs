@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SQLWrapper;
+using CustomFucntion;
 using Img = AOBET.Properties.Resources;
 
 namespace AOBET.Forms
@@ -36,17 +38,30 @@ namespace AOBET.Forms
             //PanelArena.BackColor = BgTrans;
             //PanelArena.BackgroundImage = Img.MatchFrame;
             //a_1.BackgroundImage = imgResize(Img.ResourceManager.GetObject("Alexandra") as Bitmap, a_1.Size);
-            //d_4.BackgroundImage = imgResize(Img.ResourceManager.GetObject("Alexandra") as Bitmap, d_4.Size);
         }
 
         private void Arena_Shown(object sender, EventArgs e)
         {
-            foreach (var x in PanelDetail.Controls)
-                if (x.GetType() == typeof(Label))
-                {
-                    var y = x as Label;
-                    y.BackgroundImage = imgResize(Img.ResourceManager.GetObject("Alexandra") as Bitmap, y.Size);
-                }
+            //foreach (var x in PanelDetail.Controls)
+            //    if (x.GetType() == typeof(Label))
+            //    {
+            //        var y = x as Label;
+            //        y.BackgroundImage = CF.ImgResize(Img.ResourceManager.GetObject("Alexandra") as Bitmap, y.Size);
+            //    }
+        }
+        
+        private void PanelArena_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                NativeMethod.ReleaseCapture();
+                NativeMethod.SendMessage(this.Handle, 0x00A1, 0x2, 0);
+            }
+        }
+
+        private void PanelDetail_DoubleClick(object sender, EventArgs e)
+        {
+            PanelDetail.Hide();
         }
 
         private void lbl_Exit_Click(object sender, EventArgs e)
@@ -59,22 +74,60 @@ namespace AOBET.Forms
 
         }
 
-        private Bitmap imgResize(Bitmap image, Size newSize)
+        private void PilihHero_Click(object sender, EventArgs e)
         {
-            Bitmap hsl = null;
-            if (image != null)
+            var x = sender as ToolStripMenuItem;
+            var y = x.Owner as ContextMenuStrip;
+            var z = y.SourceControl;
+            var f = new Formasi();
+            f.Owner = this;
+            f.Tag = z;
+            f.ShowDialog();
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            var x = sender as ToolStripMenuItem;
+            var y = x.Owner as ContextMenuStrip;
+            var z = y.SourceControl as HeroButton;
+            var QueryString = "SELECT FormasiName FROM Formasi WHERE FormasiId='" + z.Tag.ToString() + "'";
+            var TmpHeroName = SQLite.ExecuteScalar(QueryString, Img.SQLiteConnString).ToString().Split('_')[0];
+            Program.HeroList.Add(TmpHeroName);
+            z.Tag = null;
+            z.BackgroundImage = null;
+        }
+
+        private void btn_Hero_Click(object sender, EventArgs e)
+        {
+            var Asal = sender as HeroButton;
+            if (Asal.Tag != null && Asal.BackgroundImage != null)
             {
-                var rW = (double)newSize.Width / image.Width;
-                var rH = (double)newSize.Height / image.Height;
-                var r = Math.Min(rW, rH);
-                var nW = (int)(image.Width * r);
-                var nH = (int)(image.Height * r);
-                hsl = new Bitmap(nW, nH);
-                using (var g = Graphics.FromImage(hsl)) { g.DrawImage(image, 0, 0, nW, nH); }
+                var QueryString = "SELECT FormasiData FROM Formasi WHERE FormasiId='" + Asal.Tag.ToString() + "'";
+                var FormasiData = SQLite.ExecuteScalar(QueryString, AOBET.Properties.Resources.SQLiteConnString).ToString().Split('+');
+                if (FormasiData != null)
+                {
+                    foreach (var x in PanelDetail.Controls)
+                    {
+                        if (x.GetType() == typeof(Label))
+                            (x as Label).Image = null;
+                    }
+                    for (int i = 1; i <= 9; i++)
+                    {
+                        if (FormasiData[i - 1] != "Empty")
+                        {
+                            var Target = PanelDetail.Controls.Find("d_" + i.ToString(), true)[0] as Label;
+                            Target.Image = CF.ImgResize(Img.ResourceManager.GetObject(FormasiData[i - 1]) as Bitmap, Target.Size);
+                        }
+                    }
+                    PanelDetail.Show();
+                }
             }
-            return hsl;
         }
 
         
+
+
+        
+
     }
 }

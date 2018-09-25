@@ -101,6 +101,26 @@ namespace AOBET.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon Atlantica {
+            get {
+                object obj = ResourceManager.GetObject("Atlantica", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon Attack {
+            get {
+                object obj = ResourceManager.GetObject("Attack", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Beatrice {
@@ -146,6 +166,16 @@ namespace AOBET.Properties {
         internal static System.Drawing.Bitmap Exit {
             get {
                 object obj = ResourceManager.GetObject("Exit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FormasiBg {
+            get {
+                object obj = ResourceManager.GetObject("FormasiBg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -359,6 +389,15 @@ namespace AOBET.Properties {
         internal static string SQLite {
             get {
                 return ResourceManager.GetString("SQLite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data Source = AOBET.db.
+        /// </summary>
+        internal static string SQLiteConnString {
+            get {
+                return ResourceManager.GetString("SQLiteConnString", resourceCulture);
             }
         }
         
