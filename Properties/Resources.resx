@@ -124,9 +124,6 @@
   <data name="Alexandra" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Alexandra.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Alkinarpay" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Alkinarpay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Beatrice" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Beatrice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -217,5 +214,14 @@
   <data name="SQLiteConnString" xml:space="preserve">
     <value>Data Source = AOBET.db</value>
     <comment>Untuk connect dengan local database</comment>
+  </data>
+  <data name="Alkinarpay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Alkinarpay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Observe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Observe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NoObserve" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NoObserve.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

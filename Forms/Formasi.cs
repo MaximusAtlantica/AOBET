@@ -70,7 +70,7 @@ namespace AOBET.Forms
             var FormasiCode = cmb_Formasi.Items[cmb_Formasi.SelectedIndex].ToString();
             var QueryString = "SELECT FormasiId FROM Formasi WHERE FormasiName='" + HeroName + "_" + FormasiCode + "'";
             var FormasiId = SQLite.ExecuteScalar(QueryString, AOBET.Properties.Resources.SQLiteConnString).ToString();
-            var Asal = this.Tag as HeroButton;
+            var Asal = this.Tag as ButtonHero;
             if (Asal.Tag != null && Asal.BackgroundImage != null)
             {
                 QueryString = "SELECT FormasiName FROM Formasi WHERE FormasiId='" + Asal.Tag.ToString() + "'";

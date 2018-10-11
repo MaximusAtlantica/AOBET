@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.125" name="AOBET">
+  <DataContextMoniker Name="/AOBETDataContext" />
+  <nestedChildShapes>
+    <classShape Id="831b3d98-8324-43af-b9c6-afe04e39bd98" absoluteBounds="0.75, 6.5, 2, 2.1554996744791675">
+      <DataClassMoniker Name="/AOBETDataContext/Formasi" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e16d9177-8147-47a0-842b-d42097619bd8" absoluteBounds="0.765, 6.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="96a079ab-64f5-4fa4-b9c8-d0c4cd14e6ec" absoluteBounds="3.5, 3.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/AOBETDataContext/Record" />
+      <nestedChildShapes>
+        <elementListCompartment Id="15e2243e-33b4-4798-8052-0d9822d824fc" absoluteBounds="3.515, 4.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="091a3212-4f01-46c6-a652-928cd778fd46" absoluteBounds="4.25, 7.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/AOBETDataContext/Hero" />
+      <nestedChildShapes>
+        <elementListCompartment Id="40955618-ac0b-4c37-85b9-54e583292efb" absoluteBounds="4.2650000000000006, 7.7100000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d716c054-eca0-4f1c-8cfe-4049d740f973" absoluteBounds="6.75, 4.125, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/AOBETDataContext/Match" />
+      <nestedChildShapes>
+        <elementListCompartment Id="332fa676-5974-4920-955e-de430588e542" absoluteBounds="6.765, 4.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="736be2e7-cd06-4458-9234-0f829cbab4e9" absoluteBounds="3.5, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/AOBETDataContext/Party" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fbf07d8a-1164-4594-8a94-75a78acacb67" absoluteBounds="3.515, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.25 : 7.95274983723958); (2.75 : 7.95274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AOBETDataContext/Hero/Hero_Formasi" />
+      <nodes>
+        <classShapeMoniker Id="091a3212-4f01-46c6-a652-928cd778fd46" />
+        <classShapeMoniker Id="831b3d98-8324-43af-b9c6-afe04e39bd98" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.75 : 4.72199625651042); (5.5 : 4.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AOBETDataContext/Match/Match_Record" />
+      <nodes>
+        <classShapeMoniker Id="d716c054-eca0-4f1c-8cfe-4049d740f973" />
+        <classShapeMoniker Id="96a079ab-64f5-4fa4-b9c8-d0c4cd14e6ec" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 2.52089680989583); (4.5 : 3.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AOBETDataContext/Party/Party_Record" />
+      <nodes>
+        <classShapeMoniker Id="736be2e7-cd06-4458-9234-0f829cbab4e9" />
+        <classShapeMoniker Id="96a079ab-64f5-4fa4-b9c8-d0c4cd14e6ec" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.0625 : 2.52089680989583); (5.0625 : 3.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AOBETDataContext/Party/Party_Record1" />
+      <nodes>
+        <classShapeMoniker Id="736be2e7-cd06-4458-9234-0f829cbab4e9" />
+        <classShapeMoniker Id="96a079ab-64f5-4fa4-b9c8-d0c4cd14e6ec" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 6.5); (1.75 : 1.63544840494792); (3.5 : 1.63544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AOBETDataContext/Formasi/Formasi_Party" />
+      <nodes>
+        <classShapeMoniker Id="831b3d98-8324-43af-b9c6-afe04e39bd98" />
+        <classShapeMoniker Id="736be2e7-cd06-4458-9234-0f829cbab4e9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.75 : 4.125); (7.75 : 1.63544840494792); (5.5 : 1.63544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AOBETDataContext/Match/Match_Party" />
+      <nodes>
+        <classShapeMoniker Id="d716c054-eca0-4f1c-8cfe-4049d740f973" />
+        <classShapeMoniker Id="736be2e7-cd06-4458-9234-0f829cbab4e9" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

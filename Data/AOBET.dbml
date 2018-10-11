@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="aobet" Class="AOBETDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=den1.mssql6.gear.host;Initial Catalog=aobet;Persist Security Info=True;User ID=aobet" SettingsObjectName="AOBET.Properties.Settings" SettingsPropertyName="aobetConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Formasi" Member="Formasis">
+    <Type Name="Formasi">
+      <Column Name="FormasiId" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FormasiName" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="FormasiCode" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="HeroId" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="Win" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Lose" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FormasiData" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="Formasi_Party" Member="Parties" ThisKey="FormasiId" OtherKey="FormasiId" Type="Party" />
+      <Association Name="Hero_Formasi" Member="Hero" ThisKey="HeroId" OtherKey="HeroId" Type="Hero" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Record" Member="Records">
+    <Type Name="Record">
+      <Column Name="RecordId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MatchId" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="WPId" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="LPId" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="RecordTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Match_Record" Member="Match" ThisKey="MatchId" OtherKey="MatchId" Type="Match" IsForeignKey="true" />
+      <Association Name="Party_Record" Member="Party" ThisKey="LPId" OtherKey="PartyId" Type="Party" IsForeignKey="true" />
+      <Association Name="Party_Record1" Member="Party1" ThisKey="WPId" OtherKey="PartyId" Type="Party" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Hero" Member="Heros">
+    <Type Name="Hero">
+      <Column Name="HeroId" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HeroName" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="Win" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Lose" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Hero_Formasi" Member="Formasis" ThisKey="HeroId" OtherKey="HeroId" Type="Formasi" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Match" Member="Matches">
+    <Type Name="Match">
+      <Column Name="MatchId" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MatchName" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Association Name="Match_Record" Member="Records" ThisKey="MatchId" OtherKey="MatchId" Type="Record" />
+      <Association Name="Match_Party" Member="Parties" ThisKey="MatchId" OtherKey="MatchId" Type="Party" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Party" Member="Parties">
+    <Type Name="Party">
+      <Column Name="PartyId" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MatchId" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="FormasiId" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="Win" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Lose" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Party_Record" Member="Records" ThisKey="PartyId" OtherKey="LPId" Type="Record" />
+      <Association Name="Party_Record1" Member="Records1" ThisKey="PartyId" OtherKey="WPId" Type="Record" />
+      <Association Name="Formasi_Party" Member="Formasi" ThisKey="FormasiId" OtherKey="FormasiId" Type="Formasi" IsForeignKey="true" />
+      <Association Name="Match_Party" Member="Match" ThisKey="MatchId" OtherKey="MatchId" Type="Match" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
